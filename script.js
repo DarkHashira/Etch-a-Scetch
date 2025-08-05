@@ -12,7 +12,7 @@ const grid=(numberOfGrids)=>{
     square.style.width=`${width}px`
     container.appendChild(square)    
     square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = "darkblue"
+            square.style.backgroundColor = "#2d3436"
         })  
 }}
 grid(16)
@@ -28,7 +28,6 @@ resetButton.addEventListener("click",()=>{
 })
 
 const changeGrid = document.querySelector(".change-grid")
-changeGrid.style.backgroundColor="red"
 changeGrid.addEventListener("click",()=>{
     const sizeGrid = parseInt(prompt("Enter the number of grid sided like (16,17,18,....,100)",16))
     if(isNaN(sizeGrid) ||sizeGrid<4 || sizeGrid>100)
