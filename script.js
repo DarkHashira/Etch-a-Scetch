@@ -12,3 +12,11 @@ squares.forEach((square)=>{
         square.style.backgroundColor="darkblue"
     })
 })
+
+const resetButton = document.querySelector(".reset")
+resetButton.addEventListener("click",()=>{
+    const squares = document.querySelectorAll(".square")
+    squares.forEach((square)=>{
+        square.style.backgroundColor="blue"
+    })
+})
