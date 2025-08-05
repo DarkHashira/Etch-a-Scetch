@@ -2,23 +2,19 @@ const container = document.querySelector(".container")
 
 const grid=(numberOfGrids)=>{
     container.innerHTML=""
-    const size = 512
+    const sizeGrid = 512
     for (let index = 0; index < numberOfGrids*numberOfGrids; index++) {
     const square = document.createElement("div")
     square.classList.add("square")
-    const height = size / numberOfGrids
-    const width = size / numberOfGrids
+    const height = sizeGrid / numberOfGrids
+    const width = sizeGrid / numberOfGrids
     square.style.height=`${height}px`
     square.style.width=`${width}px`
     container.appendChild(square)    
-    const squares = document.querySelectorAll(".square")
-    squares.forEach((square)=>{
-        square.addEventListener("mouseenter" ,()=>{
-            square.style.backgroundColor="darkblue"
-        })
-    })
+    square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = "darkblue"
+        })  
 }}
-
 grid(16)
 
 
@@ -29,4 +25,15 @@ resetButton.addEventListener("click",()=>{
     squares.forEach((square)=>{
         square.style.backgroundColor="blue"
     })
+})
+
+const changeGrid = document.querySelector(".change-grid")
+changeGrid.style.backgroundColor="red"
+changeGrid.addEventListener("click",()=>{
+    const sizeGrid = parseInt(prompt("Enter the number of grid sided like (16,17,18,....,100)",16))
+    if(isNaN(sizeGrid) ||sizeGrid<4 || sizeGrid>100)
+    {
+        alert("please enter a valid number between 4 and 100")
+    }
+    grid(sizeGrid)
 })
